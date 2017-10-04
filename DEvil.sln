@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEvil", "DEvil.csproj", "{06BF7072-93C1-EACB-DAB9-96393B2E634D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEvil.Editor", "DEvil.Editor.csproj", "{CF07AB7E-D993-FF3F-A8B8-264BD8EA472D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06BF7072-93C1-EACB-DAB9-96393B2E634D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06BF7072-93C1-EACB-DAB9-96393B2E634D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06BF7072-93C1-EACB-DAB9-96393B2E634D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06BF7072-93C1-EACB-DAB9-96393B2E634D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF07AB7E-D993-FF3F-A8B8-264BD8EA472D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF07AB7E-D993-FF3F-A8B8-264BD8EA472D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF07AB7E-D993-FF3F-A8B8-264BD8EA472D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF07AB7E-D993-FF3F-A8B8-264BD8EA472D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
