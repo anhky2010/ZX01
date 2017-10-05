@@ -7,7 +7,13 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     private Animator animator;
     private GameObject Player;
-    bool isPressKey = false;
+
+    public float speed = 2f;
+    public float jumpSpeed = 1f;
+    public float gravity = 1f;
+    public bool isJumping;
+    public bool checkJump;
+    public Vector3 moveDirection = Vector3.zero;
     // Use this for initialization
     void Awake()
     {
@@ -17,20 +23,36 @@ public class PlayerController : MonoBehaviour
         }
         instance = this;
     }
+    CharacterController controller;
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        controller = GetComponent<CharacterController>();
         Player = instance.gameObject;
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
-        Attack();
-        Move();
+        //  Attack();
+        // Move();\
+        Move_2();
+    }
+
+    void Move_2()
+    {
+        if (controller.isGrounded)
+        {
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= speed;
+
+        }
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
 
     }
-    private float speed = 0;
+
     private void Move()
     {
         if (!isAnimationRunning())
@@ -48,18 +70,20 @@ public class PlayerController : MonoBehaviour
                 Player.transform.rotation = new Quaternion(0, 180, 0, 0);
                 Player.transform.Translate(Vector3.right * speed * 4 * Time.deltaTime);
             }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+
+            }
             else
             {
                 speed = 0;
                 animator.SetFloat("SpeedRunning", speed);
-
             }
         }
         else
         {
             speed = 0;
             animator.SetFloat("SpeedRunning", speed);
-
         }
 
 
