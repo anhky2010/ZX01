@@ -5,24 +5,22 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-
-    public Transform player;
     public Vector3 offset;
-    public float smoothSpeed;
-    // Use this for initialization
+    public float dampTime = 0.15f;
+    private Vector3 velocity = Vector3.zero;
+    public Transform player;
+
     void Start()
     {
-        this.transform.position = player.position - offset;
     }
-    float distance = 0;
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        //distance = this.transform.position.x - player.position.x;
-        //if (Mathf.Abs(distance) > 10)
-        //{
-        //    this.transform.position = Vector3.MoveTowards(this.transform.position, player.position - offset, smoothSpeed);
-        //}
-        this.transform.position = player.position - offset;
+        if (player)
+        {
+            Vector3 destination = player.transform.position - offset;
+            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+        }
+
     }
 }
