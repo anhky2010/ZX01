@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
             animator.ResetTrigger("param_Attack_2");
             animator.ResetTrigger("param_Kick_1");
             animator.ResetTrigger("param_Kick_2");
-            animator.ResetTrigger("param_Jump");
+            //  animator.ResetTrigger("param_Jump");
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetTrigger("param_Jump");
+            animator.SetBool("param_Jump", isJumping);
         }
 
 
@@ -136,6 +136,7 @@ public class PlayerController : MonoBehaviour
     {
         if (coll.gameObject.tag == "Ground")
             isJumping = false;
+        animator.SetBool("param_Jump", isJumping);
 
     }
 }
